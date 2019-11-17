@@ -30,6 +30,10 @@ namespace DateCalculator.Console
                     var operation = args[5];
                     System.Console.WriteLine($"operation: {operation}");
 
+                    var sign = operation.Substring(0, 1);
+                    var datePart = operation.Substring(operation.Length - 1, 1);
+                    var number = operation.Replace(sign, "").Replace(datePart, "");
+
                 }
 
             } 
