@@ -26,6 +26,10 @@ namespace DateCalculator.Console
                     var dateTimeString = args[3];
                     var dateTime = DateTime.ParseExact(dateTimeString, "yyyy-MM-ddThh:mm:ss", CultureInfo.InvariantCulture);
                     System.Console.WriteLine($"date time: {dateTime}");
+
+                    var operation = args[5];
+                    System.Console.WriteLine($"operation: {operation}");
+
                 }
 
             } 
