@@ -7,75 +7,41 @@ using System.Threading.Tasks;
 
 namespace DateCalculator.Console
 {
-    class DateOperationCalculator
+    class DateOperationCalculator //содержит только доменную логику(расчет)
     {        
-        public DateTime Calculate(string[] args)
+        public DateTime Calculate(DateOperationParserResult dateOperationParserResult)
         {
-            var dateTimeString = args[3];
-            var dateTime = DateTime.ParseExact(dateTimeString, "yyyy-MM-ddThh:mm:ss", CultureInfo.InvariantCulture);
-            System.Console.WriteLine($"date time: {dateTime}");
-
-            var operation = args[5];
-            System.Console.WriteLine($"operation: {operation}");
-
-            var sign = operation.Substring(0, 1);
-            var datePartString = operation.Substring(operation.Length - 1, 1);
-            var number = int.Parse(operation.Replace(sign, "").Replace(datePartString, ""));
-
+            var number = dateOperationParserResult.Number;
             DateTime dateTimeNew;
-            DatePart datePart;
-            switch (datePartString)
-            {
-                case "Y":
-                    datePart = DatePart.Year;
-                    break;
-                case "M":
-                    datePart = DatePart.Month;
-                    break;
-                case "D":
-                    datePart = DatePart.Day;
-                    break;
-                case "h":
-                    datePart = DatePart.Hour;
-                    break;
-                case "m":
-                    datePart = DatePart.Minute;
-                    break;
-                case "s":
-                    datePart = DatePart.Second;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
 
-            if (sign == "+")
+            if (dateOperationParserResult.Sign == "+")
             {
 
             }
-            else if (sign == "-")
+            else if (dateOperationParserResult.Sign == "-")
             {
                 number *= -1;
             }
 
-            switch (datePart)
+            switch (dateOperationParserResult.DatePart)
             {
                 case DatePart.Year:
-                    dateTimeNew = dateTime.AddYears(number);
+                    dateTimeNew = dateOperationParserResult.DateTime.AddYears(number);
                     break;
                 case DatePart.Month:
-                    dateTimeNew = dateTime.AddMonths(number);
+                    dateTimeNew = dateOperationParserResult.DateTime.AddMonths(number);
                     break;
                 case DatePart.Day:
-                    dateTimeNew = dateTime.AddDays(number);
+                    dateTimeNew = dateOperationParserResult.DateTime.AddDays(number);
                     break;
                 case DatePart.Hour:
-                    dateTimeNew = dateTime.AddHours(number);
+                    dateTimeNew = dateOperationParserResult.DateTime.AddHours(number);
                     break;
                 case DatePart.Minute:
-                    dateTimeNew = dateTime.AddMinutes(number);
+                    dateTimeNew = dateOperationParserResult.DateTime.AddMinutes(number);
                     break;
                 case DatePart.Second:
-                    dateTimeNew = dateTime.AddMinutes(number);
+                    dateTimeNew = dateOperationParserResult.DateTime.AddMinutes(number);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

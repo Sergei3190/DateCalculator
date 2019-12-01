@@ -23,8 +23,10 @@ namespace DateCalculator.Console
 
                 if(operationType == OperationType.DateOperation)
                 {
+                    var parser = new DateOperationParser();
                     var calculator = new DateOperationCalculator();
-                    var dateTimeNew = calculator.Calculate(args);
+                    var parseResult = parser.Parse(args);
+                    var dateTimeNew = calculator.Calculate(parseResult);
                     System.Console.WriteLine($"Result {dateTimeNew}");
 
                     #region trimeChars
