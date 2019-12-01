@@ -31,8 +31,41 @@ namespace DateCalculator.Console
                     System.Console.WriteLine($"operation: {operation}");
 
                     var sign = operation.Substring(0, 1);
-                    var datePart = operation.Substring(operation.Length - 1, 1);
-                    var number = operation.Replace(sign, "").Replace(datePart, "");
+                    var datePartString = operation.Substring(operation.Length - 1, 1);
+                    var number = int.Parse(operation.Replace(sign, "").Replace(datePartString, ""));
+
+                    DatePart datePart;
+                    switch (datePartString)
+                    {
+                        case "Y":
+                            datePart = DatePart.Year; 
+                            break;
+                        case "M":
+                            datePart = DatePart.Month;
+                            break;
+                        case "D":
+                            datePart = DatePart.Day;
+                            break;
+                        case "h":
+                            datePart = DatePart.Hour;
+                            break;
+                        case "m":
+                            datePart = DatePart.Minute;
+                            break;
+                        case "s":
+                            datePart = DatePart.Second;
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();                           
+                    }
+
+
+
+
+                    #region trimeChars
+                    //char[] format = {'-','+','Y','M','D','h','m','s'};
+                    //var number1 = operation.Trim(format);
+                    #endregion
 
                 }
 
