@@ -34,6 +34,7 @@ namespace DateCalculator.Console
                     var datePartString = operation.Substring(operation.Length - 1, 1);
                     var number = int.Parse(operation.Replace(sign, "").Replace(datePartString, ""));
 
+                    DateTime dateTimeNew;
                     DatePart datePart;
                     switch (datePartString)
                     {
@@ -59,8 +60,40 @@ namespace DateCalculator.Console
                             throw new ArgumentOutOfRangeException();                           
                     }
 
+                    if (sign == "+")
+                    {
+                      
+                    }
+                    else if (sign == "-")
+                    {
+                        number *= -1;
+                    }
+                   
+                    switch (datePart)
+                    {                      
+                        case DatePart.Year:
+                             dateTimeNew = dateTime.AddYears(number);
+                            break;
+                        case DatePart.Month:
+                            dateTimeNew = dateTime.AddMonths(number);
+                            break;
+                        case DatePart.Day:
+                            dateTimeNew = dateTime.AddDays(number);
+                            break;
+                        case DatePart.Hour:
+                            dateTimeNew = dateTime.AddHours(number);
+                            break;
+                        case DatePart.Minute:
+                            dateTimeNew = dateTime.AddMinutes(number);
+                            break;
+                        case DatePart.Second:
+                            dateTimeNew = dateTime.AddMinutes(number);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
 
-
+                    System.Console.WriteLine($"Result {dateTimeNew}");
 
                     #region trimeChars
                     //char[] format = {'-','+','Y','M','D','h','m','s'};
