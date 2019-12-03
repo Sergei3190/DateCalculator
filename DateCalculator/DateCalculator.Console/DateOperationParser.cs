@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DateCalculator.Console
 {
-    class DateOperationParser // содержит только логику Парсера
+    class DateOperationParser // содержит только логику Парсера, конвертор между уровнем доступа к данным и доменом
     {
         public DateOperationParserResult Parse(string[] args) 
         {
@@ -22,7 +22,6 @@ namespace DateCalculator.Console
             var datePartString = operation.Substring(operation.Length - 1, 1);
             var number = int.Parse(operation.Replace(sign, "").Replace(datePartString, ""));
 
-            DateTime dateTimeNew;
             DatePart datePart;
             switch (datePartString)
             {

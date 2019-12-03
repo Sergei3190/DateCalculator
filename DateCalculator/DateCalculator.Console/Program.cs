@@ -13,9 +13,19 @@ namespace DateCalculator.Console
         {
             try
             {
+                System.Console.OutputEncoding = Encoding.Unicode;
+               
                 if (args.Length == 0)
-                {
-                    //запросить у пользователя - сделай сам
+                {                    
+                    System.Console.WriteLine("Please enter data: ");
+                    System.Console.WriteLine(@"Operation type ""DateOperation|DateDiff"": ");
+                    var ot = System.Console.ReadLine();                
+                    System.Console.WriteLine(@"Date time in format ""yyyy-MM-ddThh:mm:ss"": ");
+                    var d = System.Console.ReadLine();
+                    System.Console.WriteLine(@"Perform an operation ""<+|-><number><date part:'Y','M','D','h','m','s'>"": ");
+                    var o = System.Console.ReadLine();
+
+                    args = new string[] { "ot", ot, "d", d, "o", o };
                 }
                 var operationTypeString = args[1];
                 var operationType = (OperationType)Enum.Parse(typeof(OperationType), operationTypeString, true);
