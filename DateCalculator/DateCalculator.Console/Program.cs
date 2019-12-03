@@ -18,25 +18,28 @@ namespace DateCalculator.Console
                 if (args.Length == 0)
                 {                    
                     System.Console.WriteLine("Please enter data: ");
-                    System.Console.WriteLine(@"Operation type ""DateOperation|DateDiff"": ");
-                    var ot = System.Console.ReadLine();                
+                    System.Console.WriteLine(@"Operation type (""{0}"" | ""{1}""): ", OperationType.DateOperation.ToString(), OperationType.DateDiff.ToString());
+                    var ot = System.Console.ReadLine();
 
-                    //здесь дописать ввод аргументов в зависимости от выбранной операции
-                    if (ot == "DateOperation")
+                    var dateTimeFormat = "yyyy-MM-ddThh:mm:ss";
+                    var stFormDateOperation = "<+|-><number><date part: 'Y','M','D','h','m','s' >";
+                    var opertionDateDiff = "<+|->";
+
+                    if (ot == OperationType.DateOperation.ToString())
                     {
-                        System.Console.WriteLine(@"Date time in format ""yyyy-MM-ddThh:mm:ss"": ");
+                        System.Console.WriteLine(@"Date time in format ""{0}"": ", dateTimeFormat);
                         var d = System.Console.ReadLine();
-                        System.Console.WriteLine(@"Perform an operation ""<+|-><number><date part:'Y','M','D','h','m','s'>"": ");
+                        System.Console.WriteLine(@"Perform an operation in string format ""{0}"": ", stFormDateOperation);
                         var o = System.Console.ReadLine();
                         args = new string[] { "ot", ot, "d", d, "o", o };
                     }
-                    else if (ot == "DateDiff")
+                    else if (ot == OperationType.DateDiff.ToString())
                     {
-                        System.Console.WriteLine(@"First date time in format ""yyyy-MM-ddThh:mm:ss"": ");
+                        System.Console.WriteLine(@"First date time in format ""{0}"": ", dateTimeFormat);
                         var d1 = System.Console.ReadLine();
-                        System.Console.WriteLine(@"Second date time in format ""yyyy-MM-ddThh:mm:ss"": ");
+                        System.Console.WriteLine(@"Second date time in format ""{0}"": ", dateTimeFormat);
                         var d2 = System.Console.ReadLine();
-                        System.Console.WriteLine(@"Perform an operation ""<+|->"": ");
+                        System.Console.WriteLine(@"Perform an operation ""{0}"": ", opertionDateDiff);
                         var o = System.Console.ReadLine();
                         args = new string[] {"ot", ot, "d1", d1, "d2", d2, "o", o };
                     }
