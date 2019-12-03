@@ -61,6 +61,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateDiffCalculator.cs" />
+    <Compile Include="DateDiffParser.cs" />
+    <Compile Include="DateDiffParserResult.cs" />
     <Compile Include="DateOperationCalculator.cs" />
     <Compile Include="DateOperationParser.cs" />
     <Compile Include="DateOperationParserResult.cs" />
