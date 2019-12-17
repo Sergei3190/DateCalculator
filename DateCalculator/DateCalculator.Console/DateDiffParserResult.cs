@@ -20,14 +20,13 @@ namespace DateCalculator.Console
             DateTime2Date = dateTime2Date;
         }
 
-        public DateTime  DateTime1 { get; }
-        public DateTime  DateTime2 { get; }
+        public DateTime DateTime1 { get; }
+        public DateTime DateTime2 { get; }
         public string Operation { get; }
         public TimeSpan TimeSpanDateTime1 { get; }
         public TimeSpan TimeSpanDateTime2 { get; }
         public DateTime DateTime1Date { get; }
         public DateTime DateTime2Date { get; }
-        
 
     }
 }

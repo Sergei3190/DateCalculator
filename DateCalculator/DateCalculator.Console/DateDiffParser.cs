@@ -11,11 +11,14 @@ namespace DateCalculator.Console
     {
         public DateDiffParserResult Parser(string[] args)
         {
+            //избавится от копипаста 16 и 19 строка 
             var dateTimeString1 = args[3];
-            var dateTime1 = DateTime.ParseExact(dateTimeString1, "yyyy-MM-ddThh:mm:ss", CultureInfo.InvariantCulture);
-
+            var dateTime1 = ParserExact(dateTimeString1);
+            System.Console.WriteLine($"date time1: {dateTime1}");
+           
             var dateTimeString2 = args[5];
-            var dateTime2 = DateTime.ParseExact(dateTimeString2, "yyyy-MM-ddThh:mm:ss", CultureInfo.InvariantCulture);
+            var dateTime2 = ParserExact(dateTimeString2);
+            System.Console.WriteLine($"date time2: {dateTime2}");
 
             var operation = args[7];
             System.Console.WriteLine($"operation: {operation}");
@@ -27,6 +30,12 @@ namespace DateCalculator.Console
             var dateTime2Date = dateTime2.Subtract(timeSpanDateTime2);
 
             return new DateDiffParserResult(dateTime1, dateTime2, operation, timeSpanDateTime1, timeSpanDateTime2, dateTime1Date, dateTime2Date);
+        }
+
+        private DateTime ParserExact(string date)
+        {
+            var newDate =  DateTime.ParseExact(date, "yyyy-MM-ddThh:mm:ss", CultureInfo.InvariantCulture);
+            return newDate;
         }
     }
 }
