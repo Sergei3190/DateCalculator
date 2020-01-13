@@ -13,19 +13,21 @@ namespace DateCalculator.Console
             DateTime dateTimeNew = new DateTime();
             if (result.Operation == "+")
             {
-                var timeSpanNew = result.TimeSpanDateTime1 + result.TimeSpanDateTime2;
-                var dateTimeNewDate = result.DateTime1Date.AddYears(result.DateTime2Date.Year).AddMonths(result.DateTime2Date.Month).AddDays(result.DateTime2Date.Day);
-                dateTimeNew = dateTimeNewDate.Add(timeSpanNew);
+                dateTimeNew = result.DateTime1.AddYears(result.DateTime2.Year)
+                                              .AddMonths(result.DateTime2.Month)
+                                              .AddDays(result.DateTime2.Day)
+                                              .AddHours(result.DateTime2.Hour)
+                                              .AddMinutes(result.DateTime2.Minute)
+                                              .AddSeconds(result.DateTime2.Second);
             }
             else if (result.Operation == "-")
             {
-                var timeSpanNew = result.TimeSpanDateTime1 - result.TimeSpanDateTime2;
-                var number = (result.DateTime2Date.Year, result.DateTime2Date.Month, result.DateTime2Date.Day);
-                number.Year *= -1;
-                number.Month *= -1;
-                number.Day *= -1;
-                var dateTimeNewDate = result.DateTime1Date.AddYears(number.Year).AddMonths(number.Month).AddDays(number.Day);
-                dateTimeNew = dateTimeNewDate.Add(timeSpanNew);
+                dateTimeNew = result.DateTime1.AddYears(result.DateTime2.Year*(-1))
+                                              .AddMonths(result.DateTime2.Month*(-1))
+                                              .AddDays(result.DateTime2.Day*(-1))
+                                              .AddHours(result.DateTime2.Hour*(-1))
+                                              .AddMinutes(result.DateTime2.Minute*(-1))
+                                              .AddSeconds(result.DateTime2.Second*(-1));
             }
 
             return dateTimeNew;
