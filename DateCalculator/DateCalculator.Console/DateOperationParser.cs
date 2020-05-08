@@ -9,7 +9,7 @@ namespace DateCalculator.Console
 {
     class DateOperationParser // содержит только логику Парсера, конвертор между уровнем доступа к данным и доменом
     {
-        public DateOperationParserResult Parse(string[] args) 
+        public DateOperationParserResult Parse(string[] args)
         {
             var dateTimeString = args[3];
             var dateTime = DateTime.ParseExact(dateTimeString, "yyyy-MM-ddThh:mm:ss", CultureInfo.InvariantCulture);
@@ -47,8 +47,7 @@ namespace DateCalculator.Console
                     throw new ArgumentOutOfRangeException();
             }
 
-
-            return new DateOperationParserResult(dateTime,sign,number,datePart);
+            return new DateOperationParserResult(dateTime, sign, number, datePart);
         }
     }
 }

@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace DateCalculator.Console
 {
     class DateOperationCalculator //содержит только доменную логику(расчет)
-    {        
+    {
         public DateTime Calculate(DateOperationParserResult dateOperationParserResult)
         {
             var number = dateOperationParserResult.Number;
             DateTime dateTimeNew;
 
-            if (dateOperationParserResult.Sign == "+")
+            if (dateOperationParserResult.Sign == "+") 
             {
 
             }

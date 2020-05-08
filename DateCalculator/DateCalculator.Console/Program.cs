@@ -14,9 +14,9 @@ namespace DateCalculator.Console
             try
             {
                 System.Console.OutputEncoding = Encoding.Unicode;
-               
+
                 if (args.Length == 0)
-                {                    
+                {
                     System.Console.WriteLine("Please enter data: ");
                     System.Console.WriteLine(@"Operation type (""{0}"" | ""{1}""): ", OperationType.DateOperation.ToString(), OperationType.DateDiff.ToString());
                     var ot = System.Console.ReadLine();
@@ -41,15 +41,15 @@ namespace DateCalculator.Console
                         var d2 = System.Console.ReadLine();
                         System.Console.WriteLine(@"Perform an operation ""{0}"": ", opertionDateDiff);
                         var o = System.Console.ReadLine();
-                        args = new string[] {"ot", ot, "d1", d1, "d2", d2, "o", o };
+                        args = new string[] { "ot", ot, "d1", d1, "d2", d2, "o", o };
                     }
-                   
+
                 }
                 var operationTypeString = args[1];
                 var operationType = (OperationType)Enum.Parse(typeof(OperationType), operationTypeString, true);
                 System.Console.WriteLine($"operation type: {operationType:G}");
 
-                if(operationType == OperationType.DateOperation)
+                if (operationType == OperationType.DateOperation)
                 {
                     var parser = new DateOperationParser();
                     var calculator = new DateOperationCalculator();
@@ -69,8 +69,8 @@ namespace DateCalculator.Console
                     System.Console.WriteLine($"Result: {dateTimeNew}, dateDiff = {dateDiff}");
                 }
 
-            } 
-            catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 System.Console.WriteLine(ex);
             }
@@ -78,8 +78,6 @@ namespace DateCalculator.Console
             {
                 System.Console.ReadLine();
             }
-           
-
         }
     }
 }

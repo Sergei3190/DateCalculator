@@ -18,6 +18,5 @@ namespace DateCalculator.Console
         public DateTime DateTime1 { get; }
         public DateTime DateTime2 { get; }
         public string Operation { get; }
-
     }
 }

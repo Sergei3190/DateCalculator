@@ -22,12 +22,12 @@ namespace DateCalculator.Console
             }
             else if (result.Operation == "-")
             {
-                dateTimeNew = result.DateTime1.AddYears(result.DateTime2.Year*(-1))
-                                              .AddMonths(result.DateTime2.Month*(-1))
-                                              .AddDays(result.DateTime2.Day*(-1))
-                                              .AddHours(result.DateTime2.Hour*(-1))
-                                              .AddMinutes(result.DateTime2.Minute*(-1))
-                                              .AddSeconds(result.DateTime2.Second*(-1));
+                dateTimeNew = result.DateTime1.AddYears(result.DateTime2.Year * (-1))
+                                              .AddMonths(result.DateTime2.Month * (-1))
+                                              .AddDays(result.DateTime2.Day * (-1))
+                                              .AddHours(result.DateTime2.Hour * (-1))
+                                              .AddMinutes(result.DateTime2.Minute * (-1))
+                                              .AddSeconds(result.DateTime2.Second * (-1));
             }
 
             return dateTimeNew;

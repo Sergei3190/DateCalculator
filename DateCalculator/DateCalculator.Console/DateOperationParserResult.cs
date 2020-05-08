@@ -16,7 +16,7 @@ namespace DateCalculator.Console
             DatePart = datePart;
         }
 
-        public DateTime DateTime { get;}
+        public DateTime DateTime { get; }
         public string Sign { get; }
         public int Number { get; }
         public DatePart DatePart { get; }
